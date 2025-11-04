@@ -101,7 +101,7 @@ const Home = () => {
   };
 
   return (
-    <div className="p-2 md:p-4 space-y-4 md:space-y-6">
+    <div className="">
       <div className="flex flex-col xl:flex-row gap-10 rounded-lg">
         {/* Pie Chart Section */}
         <div className="border border-primary rounded-lg xl:w-2/3">
@@ -146,7 +146,6 @@ const Home = () => {
 
           <div className="flex flex-col gap-4">
             <div className="grid grid-cols-1 gap-3">
-
               <div className="bg-white border border-primary col-2 rounded-lg flex items-center justify-center p-4">
                 <div className="flex flex-col items-baseline">
                   <h2 className="text-[16px] font-semibold mb-1">

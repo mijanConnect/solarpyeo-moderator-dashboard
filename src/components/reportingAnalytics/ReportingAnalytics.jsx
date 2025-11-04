@@ -31,7 +31,7 @@ const data = [
 const Custom3DBar = ({ fill, ...props }) => {
   const { x, y, width, height } = props;
   const depth = 6;
-  
+
   return (
     <g>
       {/* Main bar */}
@@ -45,13 +45,17 @@ const Custom3DBar = ({ fill, ...props }) => {
       />
       {/* Top face */}
       <polygon
-        points={`${x},${y} ${x + depth},${y - depth} ${x + width + depth},${y - depth} ${x + width},${y}`}
+        points={`${x},${y} ${x + depth},${y - depth} ${x + width + depth},${
+          y - depth
+        } ${x + width},${y}`}
         fill={fill}
         opacity={0.6}
       />
       {/* Right face */}
       <polygon
-        points={`${x + width},${y} ${x + width + depth},${y - depth} ${x + width + depth},${y + height - depth} ${x + width},${y + height}`}
+        points={`${x + width},${y} ${x + width + depth},${y - depth} ${
+          x + width + depth
+        },${y + height - depth} ${x + width},${y + height}`}
         fill={fill}
         opacity={0.4}
       />
@@ -65,15 +69,15 @@ export default function MonthlyStatsDashboard() {
 
   const dateRangeOptions = [
     "January 2025",
-    "February 2025", 
+    "February 2025",
     "March 2025",
     "April 2025",
     "May 2025",
-    "June 2025"
+    "June 2025",
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto  min-h-screen">
+    <div className="w-full max-w-6xl mx-auto">
       {/* Header with Date Range Selector */}
       <div className="mb-8">
         <div className="mb-4">
@@ -88,7 +92,7 @@ export default function MonthlyStatsDashboard() {
               <span>{selectedRange}</span>
               <ChevronDown className="ml-2 h-4 w-4" />
             </button>
-            
+
             {isDropdownOpen && (
               <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg">
                 {dateRangeOptions.map((option) => (
@@ -118,8 +122,8 @@ export default function MonthlyStatsDashboard() {
             Export
           </button> */}
         </div>
-        
-        <div style={{ width: '100%', height: '400px' }}>
+
+        <div style={{ width: "100%", height: "400px" }}>
           <ResponsiveContainer>
             <BarChart
               data={data}
@@ -128,40 +132,37 @@ export default function MonthlyStatsDashboard() {
               barGap={8}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="date" 
+              <XAxis
+                dataKey="date"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 12, fill: '#6b7280' }}
+                tick={{ fontSize: 12, fill: "#6b7280" }}
               />
-              <YAxis 
+              <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 12, fill: '#6b7280' }}
+                tick={{ fontSize: 12, fill: "#6b7280" }}
                 domain={[0, 100]}
               />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '8px',
-                  fontSize: '12px'
+                  backgroundColor: "white",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  fontSize: "12px",
                 }}
               />
-              <Legend 
-                wrapperStyle={{ paddingTop: '20px' }}
-                iconType="rect"
-              />
-              <Bar 
-                dataKey="revenue" 
-                fill="#6366f1" 
+              <Legend wrapperStyle={{ paddingTop: "20px" }} iconType="rect" />
+              <Bar
+                dataKey="revenue"
+                fill="#6366f1"
                 name="Revenue"
                 shape={Custom3DBar}
                 radius={[2, 2, 0, 0]}
               />
-              <Bar 
-                dataKey="submission" 
-                fill="#FFAE4C" 
+              <Bar
+                dataKey="submission"
+                fill="#FFAE4C"
                 name="Submission"
                 shape={Custom3DBar}
                 radius={[2, 2, 0, 0]}

@@ -22,7 +22,7 @@ import {
 
 const { Option } = Select;
 
-const SubmissionManagementCom = () => {
+const MisuseSubmission = () => {
   const [data, setData] = useState(sampleData);
   const [searchText, setSearchText] = useState("");
   const [submissionType, setSubmissionType] = useState("All");
@@ -209,8 +209,9 @@ const SubmissionManagementCom = () => {
   return (
     <div className="">
       {/* Filters */}
-      <div className="mb-6 flex flex-wrap gap-4 items-center">
-        <div className="flex items-center justify-between w-full gap-2">
+      <div className="flex justify-between items-end bg-red-300 p-3 rounded-lg mb-4 mt-4">
+        <p className="text-[25px] font-semibold ml-1">Misuse Submissions</p>
+        <div className="flex gap-2">
           <Input
             placeholder="Search by name, email, case type, or submission type"
             value={searchText}
@@ -279,4 +280,4 @@ const SubmissionManagementCom = () => {
   );
 };
 
-export default SubmissionManagementCom;
+export default MisuseSubmission;
